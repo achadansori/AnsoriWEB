@@ -1,0 +1,501 @@
+/* This is the CSS file which turns your plain HTML into a styled, more modern and minimalistic look.
+Throughout this file, you will see a variety of CSS selectors, classes, pseudo-classes, and many properties.
+One thing you may notice is that display: flex, is used a lot. Flexbox is very useful and common in the modern
+day, so this is one of the most important things to learn out of everything in CSS: https://www.w3schools.com/css/css3_flexbox.asp */
+
+/* GENERAL */
+
+/* Using google fonts link to use Poppins fonts */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
+/* Zero margin and padding for all elements */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Set the font to poppins for the entire body*/
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+/* Makes each button navigate smoothly to the next section of the website */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Setting default text color for paragraphs */
+p {
+  color: rgb(85, 85, 85);
+}
+
+/* TRANSITION */
+
+/* Applying transition for anchor tags and buttons */
+a,
+.btn {
+  transition: all 300ms ease;
+}
+
+/* DESKTOP NAV */
+
+/* Styling for the desktop navigation bar */
+nav,
+.nav-links {
+  display: flex;
+}
+
+nav {
+  justify-content: space-around;
+  align-items: center;
+  height: 17vh;
+}
+
+.nav-links {
+  gap: 2rem;
+  list-style: none;
+  font-size: 1.5rem;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+  text-decoration-color: white;
+}
+
+/* Example of a CSS pseudo class (:hover) which changes the <a> tag on hover */
+a:hover {
+  color: grey;
+  text-decoration: underline;
+  text-underline-offset: 1rem;
+  text-decoration-color: rgb(181, 181, 181);
+}
+
+.logo {
+  font-size: 2rem;
+}
+
+/* Pseudo class (:hover) which changes the logo class on hover */
+.logo:hover {
+  cursor: default;
+}
+
+/* HAMBURGER MENU */
+
+/* Styling for the hamburger menu */
+/* Using the Id selector instead of class */
+#hamburger-nav {
+  display: none;
+}
+
+/* Styling for the menu links in the hamburger menu */
+.hamburger-menu {
+  position: relative;
+  display: inline-block;
+}
+
+.hamburger-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 24px;
+  width: 30px;
+  cursor: pointer;
+}
+
+/* Selecting the class "hamburger-icon" and then only the span tags */
+.hamburger-icon span {
+  width: 100%;
+  height: 2px;
+  background-color: black;
+  transition: all 0.3 ease-in-out;
+}
+
+.menu-links {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: white;
+  width: fit-content;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.3 ease-in-out;
+}
+
+/* Selecting a tags with classname "menu-links" */
+.menu-links a {
+  display: block;
+  padding: 10px;
+  text-align: center;
+  font-size: 1.5rem;
+  color: black;
+  text-decoration: none;
+  transition: all 0.3 ease-in-out;
+}
+
+.menu-links li {
+  list-style: none;
+}
+
+.menu-links.open {
+  max-height: 300px;
+}
+
+/* More examples of pseudo classes. The first-child pseudo class selects the first element, nth-child selects the nth element, and last-child selects the last element */
+/* Animations for opening and closing the hamburger menu */
+.hamburger-icon.open span:first-child {
+  transform: rotate(45deg) translate(10px, 5px);
+}
+
+.hamburger-icon.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-icon.open span:last-child {
+  transform: rotate(-45deg) translate(10px, -5px);
+}
+
+.hamburger-icon span:first-child {
+  transform: none;
+}
+
+.hamburger-icon span:first-child {
+  opacity: 1;
+}
+
+.hamburger-icon span:first-child {
+  transform: none;
+}
+
+/* SECTIONS */
+
+/* Styling for all sections in the webpage */
+section {
+  padding-top: 4vh;
+  height: 96vh;
+  margin: 0 10rem;
+  box-sizing: border-box;
+  min-height: fit-content;
+}
+
+.section-container {
+  display: flex;
+}
+
+/* PROFILE SECTION */
+
+/* Styling for the profile section */
+#profile {
+  display: flex; /* Use flexbox to align items horizontally */
+  justify-content: center; /* Center content horizontally within the flex container */
+  gap: 5rem; /* Set the gap between child elements in the flex container */
+  height: 80vh; /* Set the height of the profile section to 80% of the viewport height */
+}
+
+/* Container for the profile picture */
+.section__pic-container {
+  display: flex; /* Use flexbox for positioning child elements */
+  height: 400px; 
+  width: 400px; 
+  margin: auto 0; /* Center the container horizontally */
+}
+
+/* Text container in the profile section */
+.section__text {
+  align-self: center; /* Center the text vertically within the flex container */
+  text-align: center; /* Center the text horizontally within the container */
+}
+
+/* Styling for text in the profile section */
+.section__text p {
+  font-weight: 600; /* Set the font weight for paragraph text */
+}
+
+/* Additional styling for the first paragraph in the profile section */
+.section__text__p1 {
+  text-align: center; /* Center the text horizontally within the container */
+}
+
+/* Styling for the second paragraph in the profile section */
+.section__text__p2 {
+  font-size: 1.75rem; /* Set the font size for the second paragraph */
+  margin-bottom: 1rem; /* Set margin at the bottom of the second paragraph */
+}
+
+/* Title styling in the profile section */
+.title {
+  font-size: 3rem; 
+  text-align: center; /* Center the title horizontally within the container */
+}
+
+/* Container for social icons in the profile section */
+#socials-container {
+  display: flex; /* Use flexbox for positioning social icons horizontally */
+  justify-content: center; /* Center social icons horizontally within the container */
+  margin-top: 1rem; /* Set margin at the top of the social icons container */
+  gap: 1rem; /* Set the gap between social icons */
+}
+
+/* ICONS */
+
+/* Styling for icons used in the webpage */
+.icon {
+  cursor: pointer; /* Set the cursor to a pointer on hover for interactive icons */
+  height: 2rem; 
+}
+
+/* BUTTONS */
+
+/* Container for buttons in the webpage */
+.btn-container {
+  display: flex; /* Use flexbox for positioning buttons horizontally */
+  justify-content: center; /* Center buttons horizontally within the container */
+  gap: 1rem; /* Set the gap between buttons */
+}
+
+/* Styling for general buttons in the webpage */
+.btn {
+  font-weight: 600; /* Set the font weight for buttons */
+  transition: all 300ms ease; /* Apply a smooth transition effect on all properties over 300 milliseconds */
+  padding: 1rem; /* Set padding for buttons */
+  width: 8rem; 
+  border-radius: 2rem; /* Set the border radius for rounded corners */
+}
+
+/* Styling for buttons with color variation 1 */
+.btn-color-1,
+.btn-color-2 {
+  border: rgb(53, 53, 53) 0.1rem solid; /* Set border for button color variations */
+}
+
+/* Hover effect for buttons with color variation 1 and 2 */
+.btn-color-1:hover,
+.btn-color-2:hover {
+  cursor: pointer; /* Set the cursor to a pointer on hover for interactive buttons */
+}
+
+/* Additional styling for button color variation 1 and hover effect */
+.btn-color-1,
+.btn-color-2:hover {
+  background: rgb(53, 53, 53); /* Set background color on hover for color variations */
+  color: white; /* Set text color on hover for color variations */
+}
+
+/* Hover effect for button color variation 1 */
+.btn-color-1:hover {
+  background: rgb(0, 0, 0); /* Set a different background color on hover for color variation 1 */
+}
+
+/* Styling for button color variation 2 */
+.btn-color-2 {
+  background: none; /* Set a transparent background for color variation 2 */
+}
+
+/* Hover effect for button color variation 2 */
+.btn-color-2:hover {
+  border: rgb(255, 255, 255) 0.1rem solid; /* Set border color on hover for color variation 2 */
+}
+
+/* Additional spacing for button container */
+.btn-container {
+  gap: 1rem; /* Set the gap between button elements in the container */
+}
+
+/* ABOUT SECTION */
+
+/* Styling for the about section */
+#about {
+  position: relative; /* Set the positioning context for child elements in the about section */
+}
+
+/* Container for about section content */
+.about-containers {
+  gap: 2rem; /* Set the gap between child elements in the about section container */
+  margin-bottom: 2rem; /* Set margin at the bottom of the about section container */
+  margin-top: 2rem; /* Set margin at the top of the about section container */
+}
+
+/* Container for details in the about section */
+.about-details-container {
+  justify-content: center; /* Center child elements horizontally within the container */
+  flex-direction: column; /* Set the flex container to a column layout */
+}
+
+/* General styling for containers in the about section */
+.about-containers,
+.about-details-container {
+  display: flex; /* Use flexbox for positioning child elements */
+  flex-wrap: wrap; /* Allow child elements to wrap to the next line if necessary */
+}
+
+/* Styling for the profile picture in the about section */
+.about-pic {
+  border-radius: 2rem; /* Set border radius for rounded corners on the profile picture */
+}
+
+/* Styling for the arrow element in the about section */
+.arrow {
+  position: absolute; /* Set the positioning context for the arrow element */
+  right: -5rem; /* Set the distance of the arrow from the right edge */
+  bottom: 2.5rem; /* Set the distance of the arrow from the bottom edge */
+}
+
+/* Container for details in the about section */
+.details-container {
+  padding: 1.5rem; /* Set padding for the details container */
+  flex: 1; /* Allow the container to grow and shrink based on available space */
+  background: white; 
+  border-radius: 2rem; /* Set border radius for rounded corners */
+  border: rgb(53, 53, 53) 0.1rem solid; /* Set border for the details container */
+  border-color: rgb(163, 163, 163); /* Set border color for the details container */
+  text-align: center; /* Center text horizontally within the details container */
+}
+
+/* Additional spacing for section container in the about section */
+.section-container {
+  gap: 4rem; /* Set the gap between child elements in the section container */
+  height: 80%; /* Set the height of the section container to 80% of the parent container */
+}
+
+/* Container for profile picture in the about section */
+.section__pic-container {
+  height: 400px; /* Set the height of the profile picture container */
+  width: 400px; /* Set the width of the profile picture container */
+  margin: auto 0; /* Center the container horizontally */
+}
+
+/* EXPERIENCE SECTION */
+
+/* Styling for the experience section */
+#experience {
+  position: relative; /* Set the positioning context for child elements in the experience section */
+}
+
+/* Styling for the sub-title in the experience section */
+.experience-sub-title {
+  color: rgb(85, 85, 85); /* Set the color of the sub-title text */
+  font-weight: 600; /* Set the font weight for the sub-title text */
+  font-size: 1.75rem; /* Set the font size for the sub-title text */
+  margin-bottom: 2rem; /* Set margin at the bottom of the sub-title */
+}
+
+/* Container for details in the experience section */
+.experience-details-container {
+  display: flex; /* Use flexbox for positioning child elements horizontally */
+  justify-content: center; /* Center child elements horizontally within the container */
+  flex-direction: column; /* Set the flex container to a column layout */
+}
+
+/* Container for articles in the experience section */
+.article-container {
+  display: flex; /* Use flexbox for positioning child elements horizontally */
+  text-align: initial; /* Align text to the left within the container */
+  flex-wrap: wrap; /* Allow child elements to wrap to the next line if necessary */
+  flex-direction: row; /* Set the flex container to a row layout */
+  gap: 2.5rem; /* Set the gap between child elements in the article container */
+  justify-content: space-around; /* Distribute child elements evenly within the container */
+}
+
+/* Styling for individual articles in the experience section */
+article {
+  display: flex; /* Use flexbox for positioning child elements horizontally */
+  width: 10rem; /* Set the width of individual articles */
+  justify-content: space-around; /* Distribute child elements evenly within the container */
+  gap: 0.5rem; /* Set the gap between child elements in the article */
+}
+
+/* Styling for icons within articles in the experience section */
+article .icon {
+  cursor: default; /* Set the default cursor style for icons within articles */
+}
+
+/* PROJECTS SECTION */
+
+/* Styling for the projects section */
+#projects {
+  position: relative; /* Set the positioning context for child elements in the projects section */
+}
+
+/* Styling for the color container in the projects section */
+.color-container {
+  border-color: rgb(163, 163, 163); /* Set the border color for the color container */
+  background: rgb(250, 250, 250); 
+}
+
+/* Styling for project images in the projects section */
+.project-img {
+  border-radius: 2rem; /* Set border radius for rounded corners on project images */
+  width: 90%; 
+  height: 90%; 
+}
+
+/* Styling for project titles in the projects section */
+.project-title {
+  margin: 1rem; /* Set margin around project titles */
+  color: black; 
+}
+
+/* Styling for project buttons in the projects section */
+.project-btn {
+  color: black; 
+  border-color: rgb(163, 163, 163); /* Set the border color for project buttons */
+}
+
+/* CONTACT SECTION */
+
+/* Styling for the contact section */
+#contact {
+  display: flex; /* Use flexbox for positioning child elements horizontally */
+  justify-content: center; /* Center child elements horizontally within the container */
+  flex-direction: column; /* Set the flex container to a column layout */
+  height: 70vh; /* Set the height of the contact section to 70% of the viewport height */
+}
+
+/* Styling for the upper container in the contact section */
+.contact-info-upper-container {
+  display: flex; /* Use flexbox for positioning child elements horizontally */
+  justify-content: center; /* Center child elements horizontally within the container */
+  border-radius: 2rem; /* Set border radius for rounded corners on the upper container */
+  border: rgb(53, 53, 53) 0.1rem solid; /* Set border for the upper container */
+  border-color: rgb(163, 163, 163); /* Set border color for the upper container */
+  background: (250, 250, 250); 
+  margin: 2rem auto; /* Set margin around the upper container */
+  padding: 0.5rem; /* Set padding for the upper container */
+}
+
+/* Container for contact information in the contact section */
+.contact-info-container {
+  display: flex; /* Use flexbox for positioning child elements horizontally */
+  align-items: center; /* Align child elements vertically within the container */
+  justify-content: center; /* Center child elements horizontally within the container */
+  gap: 0.5rem; /* Set the gap between child elements in the contact information container */
+  margin: 1rem; /* Set margin around the contact information container */
+}
+
+/* Styling for contact information text in the contact section */
+.contact-info-container p {
+  font-size: larger; /* Set the font size for contact information text */
+}
+
+/* Styling for contact icons in the contact section */
+.contact-icon {
+  cursor: default; /* Set the default cursor style for contact icons */
+}
+
+/* Styling for the email icon in the contact section */
+.email-icon {
+  height: 2.5rem; 
+}
+
+/* FOOTER SECTION */
+
+/* Styling for the footer section */
+footer {
+  height: 26vh; /* Set the height of the footer section to 26% of the viewport height */
+  margin: 0 1rem; /* Set margin on the left and right sides of the footer section */
+}
+
+/* Styling for text within the footer section */
+footer p {
+  text-align: center; /* Center text horizontally within the footer section */
+}
